@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #16489a;
-    --secondary-color: #F05A28;
+    --primary-color: #1b7913;
+    --secondary-color: #084b0b;
     --light-color: #f3f3f3;
     --dark-color: #111;
 }
@@ -322,7 +322,7 @@ footer {
   right: 0;
   height: 60px;
   /* background: #1a55c3cf;*/
-  background: #16499ad2;
+  background: #1b7913cf; 
   color: #fff;
   padding: 20px 0px 10px 10px;
   transition: height 0.4s ease;
@@ -463,8 +463,8 @@ footer {
   pointer-events: none;
 }
 
-.dashboard-card .overlay.blue {
-  background-color: rgba(0, 60, 160, 0.6);
+.dashboard-card .overlay.green {
+  background-color: rgba(0, 160, 72, 0.6);
 }
 
 .dashboard-card .overlay.orange {
@@ -1046,12 +1046,13 @@ footer {
   margin-top: 15px;
   text-align: center;
   font-size: 12px;
-  border-top: 1px solid #27327A;
+  border-top: 1px solid transparent;
   padding-top: 10px;
+  color: var(--secondary-color);
 }
 
 a {
-  color: #ffd966; /* light yellow links */
+  color: #1b7913; /* light green links */
   text-decoration: none;
 }
 
@@ -1092,19 +1093,237 @@ a:hover {
   backface-visibility: hidden;
 }
 
-/* Style the front side (fallback if image is missing) */
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
+
+
+_________
+
+.blog *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 100px;
 }
 
-.flip-card-front h1{
-  z-index: 1;
+.blog {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f4f7f6;
+    color: var(--primary-color);
+    line-height: 1.6;
 }
+
+/* ====== HEADER ====== */
+.blog h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.blog p {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+/* ====== NAVIGATION ====== */
+.blog nav {
+    background: #134700;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    padding-right: 370px;
+}
+
+.blog nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    color: white;
+}
+
+#blogH1{
+  color: var(--primary-color);
+}
+
+#blogP{
+  color: var(--primary-color);
+}
+
+____
+
+
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+background-color: #bbb;
+color: black;
+}
+
+
+.flip-card-front h1{
+z-index: 1;
+}
+
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
+background-color: dodgerblue;
+color: white;
+transform: rotateY(180deg);
+}
+
+
+
+
+.header-right {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+
+header {
+position: sticky;
+top: 0;
+z-index: 9999;
+}
+
+
+.about-hero {
+background: url("image1.png") center/cover no-repeat;
+height: 400px;
+position: relative;
+}
+
+
+.about-hero::after {
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(22, 72, 154, 0.55);
+}
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+a:focus,
+button:focus {
+outline: 3px solid var(--secondary-color);
+outline-offset: 3px;
+}
+
+
+img {
+max-width: 100%;
+height: auto;
+}
+/* ===== TEAM SECTION CARDS ===== */
+.team-member {
+  width: 220px;
+  text-align: center;
+  background-color: white; /* card background */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Card hover effect */
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Profile image inside the card */
+.team-member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--secondary-color);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+
+/* Hover effect on image */
+.team-member:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.05);
+}
+
+
+.team-member h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+
+.team-member p {
+  font-size: 16px;
+  color: #555;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .team-member {
+    width: 180px;
+  }
+
+
+  .team-member img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.mtt{
+padding:25px;color:#16489a;border: 2px burlywood solid;width: 375px;margin:20px;
+}
+.big{
+  font-size:x-large;
+}
+.right{
+  text-align: right;
+}
+.big2{
+  font-size:x-large;
+}
+.bruh{
+  padding-bottom:15px;
+}
+hr{
+  border: none; /* Removes default border styles */
+  height: 5px; /* Sets the thickness of the line */
+  background-color:#16489a; /* Sets the color of the line */
+  margin-bottom: 10px;
 }
